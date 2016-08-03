@@ -81,13 +81,13 @@
         <scene sceneID="wwN-p2-Fgd">
             <objects>
                 <tableViewController storyboardIdentifier="reposTVC" id="gcQ-NZ-0v9" customClass="ReposTableViewController" customModule="GitHubOAuth" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ohg-7x-e9G">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ohg-7x-e9G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="31q-XH-YnZ" customClass="ReposTableViewCell" customModule="GitHubOAuth" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="113.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="31q-XH-YnZ" id="wvU-TO-djP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -101,9 +101,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Vy7-XE-kCz">
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="QM6-Jv-o2z">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="QM6-Jv-o2z">
+                            <color key="tintColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="logoutButtonTapped:" destination="gcQ-NZ-0v9" id="hd9-ou-vN1"/>
+                                <action selector="logout" destination="gcQ-NZ-0v9" id="Mq8-tp-VxG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

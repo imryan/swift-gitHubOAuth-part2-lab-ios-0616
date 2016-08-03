@@ -12,6 +12,37 @@ class ReposTableViewController: UITableViewController {
 
     let store = ReposDataStore.sharedInstance
     
+    // MARK: - Functions
+    
+    @IBAction func logout() {
+        GitHubAPIClient.deleteAccessToken { (success) in
+            if success {
+                NSNotificationCenter.defaultCenter().postNotificationName(Notification.closeReposTVC, object: nil)
+            } else {
+                print("Error deleting access token")
+            }
+        }
+    }
+    
+    // MARK: - Table
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return store.repositories.count
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Repositories"
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! ReposTableViewCell
+        cell.repo = store.repositories[indexPath.row]
+        return cell
+    }
+    
+    // MARK: - View
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,20 +59,4 @@ class ReposTableViewController: UITableViewController {
         }
 
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return store.repositories.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! ReposTableViewCell
-        cell.repo = store.repositories[indexPath.row]
-        return cell
-    }
-
-    @IBAction func logoutButtonTapped(sender: AnyObject) {
-        
-    }
-
 }

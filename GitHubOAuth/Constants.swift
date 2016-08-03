@@ -12,7 +12,6 @@ struct Notification {
     static let closeSafariVC = "Close safari view controller"
     static let closeLoginVC = "Close login view controller"
     static let closeReposTVC = "Close repo table view controller"
-    
 }
 
 struct StoryboardID {
